@@ -31,10 +31,10 @@
 
         <Border Grid.RowSpan="2" 
                 Width="250" 
-                Height="250" 
-                HorizontalAlignment="Center" 
+                Height="250"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="LavenderBlush"
+                Background="Gray"
                 Panel.ZIndex="1"
                 Style="{StaticResource Rounded}">
             <Grid>
@@ -54,20 +54,22 @@
                            FontSize="25" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center"/>
-                
+
 
                 <TextBox Grid.Row="1" 
                          Grid.ColumnSpan="2" 
                          Width="175" 
                          Height="30"  
                          HorizontalAlignment="Center" 
-                         VerticalAlignment="Center"/>                
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"/>
                 <TextBox Grid.Row="1" 
                          Grid.ColumnSpan="2" 
                          Width="175" 
                          Height="30"  
                          HorizontalAlignment="Center" 
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"/>
 
                 
                 <PasswordBox Grid.Row="2" 
@@ -75,18 +77,40 @@
                              Width="175" 
                              Height="30" 
                              HorizontalAlignment="Center" 
-                             VerticalAlignment="Center"/>
+                             VerticalAlignment="Center"
+                             VerticalContentAlignment="Center"/>
                 <TextBox Grid.Row="2" 
                          Grid.ColumnSpan="2" 
                          Width="175" 
                          Height="30"  
                          HorizontalAlignment="Center" 
-                         VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"
+                         VerticalContentAlignment="Center"/>
 
 
-                <StackPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5,0,0,5">
-                    <Button Content="Create an account" FontSize="10" FontWeight="Bold"/>
-                    <Button Content="Recover your password" FontSize="10" FontWeight="Bold"/>
+                <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Margin="5,0,0,5">
+                    
+                    <Button Content="Create an account" 
+                            FontSize="9" 
+                            FontWeight="Bold" 
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource Transparent}"/>
+                    <Button Content="Recover your password" 
+                            FontSize="9" 
+                            FontWeight="Bold" 
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource Transparent}"/>
+                    
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5">
+
+                    <Button Content="Enter" 
+                            FontSize="14" 
+                            FontWeight="Bold" 
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource ErmesBtn}"/>
+
                 </StackPanel>
 
             </Grid>
