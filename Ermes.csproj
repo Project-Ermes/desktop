@@ -7,18 +7,44 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\LoginBG.jpg" />
+    <None Remove="Images\Backgrounds\bluepink.jpg" />
+    <None Remove="Images\Backgrounds\bluepinkUP.jpg" />
+    <None Remove="Images\Icons\search.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="LoginPages\" />
-    <Folder Include="MainPages\" />
-    <Folder Include="Models\" />
     <Folder Include="Fonts\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\LoginBG.jpg" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\bluepink.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Backgrounds\bluepinkUP.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\search.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -6,116 +6,81 @@
         xmlns:local="clr-namespace:Ermes"
         mc:Ignorable="d"
         Title="LoginWindow" 
-        Height="450" 
-        Width="650" 
+        Height="480" 
+        Width="680" 
         WindowStyle="None" 
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>
+        AllowsTransparency="True"
+        Background="Transparent">
 
-        <Image Grid.RowSpan="2" Stretch="UniformToFill" Panel.ZIndex="0"/>
+    <Border BorderBrush="Black"
+            BorderThickness="0.5"
+            Margin="10"
+            Background="#232333">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                              Opacity="0.8"
+                              ShadowDepth="3"
+                              BlurRadius="20"/>
+        </Border.Effect>
 
-        <Border Name="Handle" Panel.ZIndex="1">
-            <WrapPanel HorizontalAlignment="Right" 
-                       VerticalAlignment="Top" 
-                       Margin="0,0,0,0">                
-                <Button Name="Minimize" Content="_" Width="40" Height="25"/>
-                <Button Name="Close" Content="x" Width="40" Height="25"/>
-            </WrapPanel>
-        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-        <Border Grid.RowSpan="2" 
-                Width="250" 
-                Height="250"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="Gray"
-                Panel.ZIndex="1"
-                Style="{StaticResource Rounded}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="3*"/>
-                </Grid.RowDefinitions>
+            <Image Grid.RowSpan="2" Source="/Images/Backgrounds/bluepink.jpg" Stretch="UniformToFill" Panel.ZIndex="0"/>
 
-                <TextBlock Grid.ColumnSpan="2" 
-                           Text="Welcome!" 
-                           FontSize="25" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center"/>
+            <Border Name="Handle" 
+                    MouseDown="Handle_MouseDown"
+                    Height="25" 
+                    Background="#232333">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
 
+                    <TextBlock Text="Ermes"
+                               Foreground="#757595"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
 
-                <TextBox Grid.Row="1" 
-                         Grid.ColumnSpan="2" 
-                         Width="175" 
-                         Height="30"  
-                         HorizontalAlignment="Center" 
-                         VerticalAlignment="Center"
-                         VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="1" 
-                         Grid.ColumnSpan="2" 
-                         Width="175" 
-                         Height="30"  
-                         HorizontalAlignment="Center" 
-                         VerticalAlignment="Center"
-                         VerticalContentAlignment="Center"/>
+                    <WrapPanel HorizontalAlignment="Right" 
+                               Grid.Column="1"
+                               Margin="0,0,0,0">
+                        <Button Name="Minimize" 
+                        Click="Minimize_Click" 
+                        Content="_"
+                        Padding="0,0,0,3"
+                        Cursor="Hand"
+                        Background="#232333"
+                        Foreground="#757595"
+                        Style="{StaticResource WindowBtn}"/>
+                        <Button Name="Close" 
+                        Click="Close_Click" 
+                        Content="✕" 
+                        Cursor="Hand"
+                        Background="#232333"
+                        Foreground="#757595"
+                        Style="{StaticResource WindowBtn}"/>
+                    </WrapPanel>
+                </Grid>
+            
+            </Border>
 
-                
-                <PasswordBox Grid.Row="2" 
-                             Grid.ColumnSpan="2" 
-                             Width="175" 
-                             Height="30" 
-                             HorizontalAlignment="Center" 
-                             VerticalAlignment="Center"
-                             VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="2" 
-                         Grid.ColumnSpan="2" 
-                         Width="175" 
-                         Height="30"  
-                         HorizontalAlignment="Center" 
-                         VerticalAlignment="Center"
-                         VerticalContentAlignment="Center"/>
+            <Frame 
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Name="LoginFrame"
+                Source="./LoginPages/LoginPage.xaml"
+                NavigationUIVisibility="Hidden"
+                Margin="0,-30,0,0"/>
 
+        </Grid>
 
-                <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Margin="5,0,0,5">
-                    
-                    <Button Content="Create an account" 
-                            FontSize="9" 
-                            FontWeight="Bold" 
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource Transparent}"/>
-                    <Button Content="Recover your password" 
-                            FontSize="9" 
-                            FontWeight="Bold" 
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource Transparent}"/>
-                    
-                </StackPanel>
+    </Border>
 
-                <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5">
-
-                    <Button Content="Enter" 
-                            FontSize="14" 
-                            FontWeight="Bold" 
-                            HorizontalAlignment="Right"
-                            Style="{StaticResource ErmesBtn}"/>
-
-                </StackPanel>
-
-            </Grid>
-        </Border>
-        
-    </Grid>
-    
 </Window>

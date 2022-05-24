@@ -9,45 +9,37 @@ namespace Ermes.API
     {
         public static string Get(string url)
         {
-            using (HttpClient client = new HttpClient())
+            using (var client = new HttpClient())
             {
-                Uri endpoint = new Uri(url);
-                HttpResponseMessage result = client.GetAsync(endpoint).Result;
-                var json = result.Content.ReadAsStringAsync().Result;
-                return json;
+                var result = client.GetAsync(url).Result;
+                return result.Content.ReadAsStringAsync().Result;
             }
         }
 
         public static string Post(string url, StringContent content)
         {
-            using (HttpClient client = new HttpClient())
+            using (var client = new HttpClient())
             {
-                Uri endpoint = new Uri(url);
-                HttpResponseMessage response = client.PostAsync(endpoint, content).Result;
-                var result = response.Content.ReadAsStringAsync().Result;
-                return result;
+                var result = client.PostAsync(url, content).Result;
+                return result.Content.ReadAsStringAsync().Result;
             }
         }
 
         public static string Put(string url, StringContent content)
         {
-            using (HttpClient client = new HttpClient())
+            using (var client = new HttpClient())
             {
-                Uri endpoint = new Uri(url);
-                HttpResponseMessage response = client.PutAsync(endpoint, content).Result;
-                var result = response.Content.ReadAsStringAsync().Result;
-                return result;
+                var result = client.PutAsync(url, content).Result;
+                return result.Content.ReadAsStringAsync().Result;
             }
         }
 
         public static string Delete(string url)
         {
-            using (HttpClient client = new HttpClient())
+            using (var client = new HttpClient())
             {
-                Uri endpoint = new Uri(url);
-                HttpResponseMessage response = client.DeleteAsync(endpoint).Result;
-                var result = response.Content.ReadAsStringAsync().Result;
-                return result;
+                var result = client.DeleteAsync(url).Result;
+                return result.Content.ReadAsStringAsync().Result;
             }
         }
     }

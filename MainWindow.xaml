@@ -5,8 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ermes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="700">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" 
+        Height="480"
+        MinHeight="480"
+        Width="680"
+        MinWidth="680"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowState="Maximized">
+
+    <Border BorderBrush="Black"
+            BorderThickness="0.5"
+            Name="ShadowBorder"
+            Margin="4"
+            Background="#232333">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                              Opacity="0.8"
+                              ShadowDepth="3"
+                              BlurRadius="20"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border Name="Handle" 
+                MouseDown="Handle_MouseDown"
+                Height="25" 
+                Background="#232333">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Ermes"
+                               Foreground="#757595"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+
+                    <WrapPanel HorizontalAlignment="Right" 
+                               Grid.Column="1"
+                               Margin="0,0,0,0">
+                        <Button Name="Minimize" 
+                        Click="Minimize_Click" 
+                        Content="_"
+                        Padding="0,0,0,3"
+                        Background="#232333"
+                        Foreground="#757595"
+                        Style="{StaticResource WindowBtn}"/>
+                        <Button Name="Maximize" 
+                        Click="Maximize_Click" 
+                        Content="☐"
+                        Background="#232333"
+                        Foreground="#757595"
+                        Style="{StaticResource WindowBtn}"/>
+                        <Button Name="Close" 
+                        Click="Close_Click" 
+                        Content="✕" 
+                        Background="#232333"
+                        Foreground="#757595"
+                        Style="{StaticResource WindowBtn}"/>
+                    </WrapPanel>
+                    
+                </Grid>
+                
+            </Border>
+
+            <Frame 
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Name="MainFrame"
+            NavigationUIVisibility="Hidden"/>
+
+        </Grid>
+
+    </Border>
+
 </Window>
